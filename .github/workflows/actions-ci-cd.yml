@@ -1,19 +1,25 @@
-on: [push]
+name: Create infra and deploy to Azure
 
-name: apps30-full-cicd
-
-env:
-  resourceGroup: myapp-dev-rg
-  location: westeurope
-  subName: "Microsoft Internal"
-  cosmosDBName: myappcosmos-dev
-  sqlDBName: myappsqldb-dev
-  webappName: myapp-dev
-  acrName: myappacr-dev
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
+
   deployInfra:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+
+    env:
+      resourceGroup: myapp-dev-rg
+      location: westeurope
+      subName: "Microsoft Internal"
+      cosmosDBName: myappcosmos-dev
+      sqlDBName: myappsqldb-dev
+      webappName: myapp-dev
+      acrName: myappacr-dev
+
     steps:
     # checkout branch
     - uses: actions/checkout@master
