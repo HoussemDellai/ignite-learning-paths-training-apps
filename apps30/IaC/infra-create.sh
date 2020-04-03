@@ -3,15 +3,15 @@
 set -e
 
 # Credentials
-azureResourceGroup=igniteapps30
+azureResourceGroup=myapp-dev-rg
 adminUser=twtadmin
 adminPassword=twtapps30pD
-subName="Ignite The Tour"
+subName="Microsoft Internal"
 location=eastus
 # DB Name
-cosmosdbname=apps30twtnosqlge
-sqldbname=apps30twtsql
-acrName=igniteapps30acr
+cosmosdbname=myapp-cosmosdb-dev
+sqldbname=myapp-sqldb-dev
+acrName=myapp-acr-dev
 
 # Create resource group
 az group create --subscription "$subName" --name $azureResourceGroup --location $location
